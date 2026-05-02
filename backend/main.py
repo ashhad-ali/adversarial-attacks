@@ -6,6 +6,7 @@ import torchattacks
 from fastapi import FastAPI, UploadFile, File, Form
 from fastapi.middleware.cors import CORSMiddleware
 from PIL import Image
+from scipy.optimize import differential_evolution
 
 from model import model, transform, class_labels
 
@@ -126,6 +127,22 @@ async def attack_deepfool(
 
     return build_response(tensor, adv_tensor, original_label, adversarial_label)
 
+@app.post("/attacks/cw")
+async def attack_cw(
+    file: UploadFile = File(...),
+    confidence: float = Form(0),
+    steps: int = Form(1000),
+):
+    tensor = load_image(await file.read())
+    original_idx, original_label = predict(tensor)
+
+    attack = torchattacks.CW(model, c=1, kappa=confidence, steps=steps, lr=0.01)
+    label_tensor = torch.tensor([original_idx])
+    adv_tensor = attack(tensor, label_tensor)
+
+    _, adversarial_label = predict(adv_tensor)
+
+    return build_response(tensor, adv_tensor, original_label, adversarial_label)
 
 # Keep the old /attack endpoint working so the existing fgsm page
 # doesn't break until we update it to use /attacks/fgsm

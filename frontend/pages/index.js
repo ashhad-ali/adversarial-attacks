@@ -36,7 +36,7 @@ const attacks = [
     description: "Optimization-based attack that minimizes perturbation size while ensuring misclassification. One of the strongest known attacks.",
     tag: "optimization · L2",
     paper: "Carlini & Wagner, 2017",
-    ready: false,
+    ready: true,
   },
   {
     slug: "one-pixel",
