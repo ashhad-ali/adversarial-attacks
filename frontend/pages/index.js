@@ -91,21 +91,6 @@ export default function Home() {
 
         {/* Hero */}
         <header style={{ marginBottom: 80 }}>
-          <div style={{
-            display: "inline-block",
-            fontFamily: "var(--mono)",
-            fontSize: 11,
-            letterSpacing: "0.12em",
-            textTransform: "uppercase",
-            color: "var(--accent)",
-            background: "var(--accent-bg)",
-            padding: "4px 10px",
-            borderRadius: 4,
-            marginBottom: 20,
-          }}>
-            ResNet-18 · ImageNet · Interactive
-          </div>
-
           <h1 style={{
             fontFamily: "var(--sans)",
             fontSize: "clamp(32px, 6vw, 56px)",
