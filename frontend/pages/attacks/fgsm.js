@@ -77,8 +77,8 @@ export default function FGSM() {
 
       <AttackLayout
         tag="ResNet-18 · ImageNet · Single Step"
-        title={<>Adversarial Attack<br /><span style={{ fontWeight: 500 }}>Visualizer</span></>}
-        description="Fast Gradient Sign Method — perturb an image by"
+        title={<>Fast Gradient<br /><span style={{ fontWeight: 500 }}>Sign Method</span></>}
+        description="Perturb an image by"
         formula="ε · sign(∇ₓJ)"
         result={result}
       >
