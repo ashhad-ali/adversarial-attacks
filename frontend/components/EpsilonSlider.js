@@ -1,4 +1,5 @@
-export default function EpsilonSlider({ value, onChange, min = 0.01, max = 1.0, step = 0.01 }) {
+// 1. Change the default props in the function definition:
+export default function EpsilonSlider({ value, onChange, min = 0.001, max = 0.1, step = 0.001 }) {
   return (
     <div>
       <div style={{
@@ -23,7 +24,8 @@ export default function EpsilonSlider({ value, onChange, min = 0.01, max = 1.0, 
           color: "var(--accent)",
           letterSpacing: "-0.02em",
         }}>
-          {value.toFixed(2)}
+          {/* 2. Change .toFixed(2) to .toFixed(3) so it displays the smaller steps */}
+          {value.toFixed(3)}
         </span>
       </div>
       <input
@@ -43,7 +45,7 @@ export default function EpsilonSlider({ value, onChange, min = 0.01, max = 1.0, 
         marginTop: 5,
       }}>
         <span>{min} — imperceptible</span>
-        <span>{max} — aggressive</span>
+        <span>{max} — extreme</span> {/* Changed "aggressive" to "extreme" to match the visual breakdown */}
       </div>
     </div>
   )

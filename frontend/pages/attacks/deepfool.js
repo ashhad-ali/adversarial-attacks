@@ -110,9 +110,11 @@ export default function DeepFool() {
                 color: "var(--muted)",
                 lineHeight: 1.6,
               }}>
-                No parameters needed — DeepFool computes the minimum
-                perturbation required to cross the decision boundary.
-              </div>
+                DeepFool computes the minimum perturbation to cross the decision
+                boundary — no epsilon needed. Note: on highly confident predictions,
+                the boundary may be too far to reach within the step budget.
+                This is a known limitation on large models like ResNet-18.
+            </div>
               <ErrorMessage message={error} />
               <RunButton onClick={handleAttack} loading={loading} />
             </>

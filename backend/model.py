@@ -15,10 +15,6 @@ transform = transforms.Compose([
     # but it guarantees no parts of the car are chopped off.
     transforms.Resize((224, 224)), 
     transforms.ToTensor(),
-    transforms.Normalize(
-        mean=[0.485, 0.456, 0.406],
-        std=[0.229, 0.224, 0.225]
-    )
 ])
 
 # These are the 1000 ImageNet class labels

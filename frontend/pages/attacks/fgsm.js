@@ -11,7 +11,7 @@ const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"
 export default function FGSM() {
   const [file, setFile] = useState(null)
   const [preview, setPreview] = useState(null)
-  const [epsilon, setEpsilon] = useState(0.05)
+  const [epsilon, setEpsilon] = useState(0.031)
   const [result, setResult] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
